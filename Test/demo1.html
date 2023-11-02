@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>经典软件体系结构教学软件</title>
+</head>
+<body>
+    <h1>经典软件体系结构教学软件</h1>
+    <label for="architecture-style">选择风格：</label>
+    <select id="architecture-style" onchange="updateContent()">
+        <option value="main-subroutine">主程序-子程序</option>
+        <option value="object-oriented">面向对象</option>
+        <option value="event-system">事件系统</option>
+        <option value="pipe-filter">管道-过滤器</option>
+    </select>
+    <br><br>
+    
+    <label for="input-file">选择输入文件：</label>
+    <input type="file" id="input-file">
+    <button onclick="processFile()">处理文件</button>
+
+    <h2>内容：</h2>
+    <img id="content-image" src="" alt="Content Image">
+    <div id="content"></div>
+
+    <h2>处理结果：</h2>
+    <div id="result"></div>
+
+    <script>
+        function updateContent() {
+            const style = document.getElementById("architecture-style").value;
+            const contentElement = document.getElementById("content");
+            const contentImage = document.getElementById("content-image");
+            const resultElement = document.getElementById("result");
+            const inputFile = document.getElementById("input-file").files[0];
+
+            switch (style) {
+                case "main-subroutine":
+                    contentImage.src = "1.png";
+                    contentElement.innerHTML = "主程序-子程序的原理和示例内容...";
+                    resultElement.innerHTML = processMainSubroutine(inputFile);
+                    break;
+
+                case "object-oriented":
+                    contentImage.src = "2.png";
+                    contentElement.innerHTML = "面向对象的原理和示例内容...";
+                    resultElement.innerHTML = processObjectOriented(inputFile);
+
+                    break;
+                case "event-system":
+                    contentImage.src = "3.png";
+                    contentElement.innerHTML = "事件系统的原理和示例内容...";
+                    resultElement.innerHTML = processEventSystem(inputFile);
+
+                    break;
+                case "pipe-filter":
+                    contentImage.src = "4.png";
+                    contentElement.innerHTML = "管道-过滤器的原理和示例内容...";
+                    resultElement.innerHTML = processPipeFilter(inputFile);
+
+                    break;
+                default:
+                    // 默认显示通用内容或者提示
+                    contentElement.innerHTML = "请选择一个软件体系结构风格以查看内容。";
+            }
+        }
+
+        function processMainSubroutine(file) {
+            // 执行主程序-子程序风格的文件处理操作
+            
+            return "使用主程序-子程序风格处理文件的结果。";
+        }
+
+        function processObjectOriented(file) {
+            // 执行面向对象风格的文件处理操作
+            return "使用面向对象风格处理文件的结果。";
+        }
+
+        function processEventSystem(file) {
+            // 执行事件系统风格的文件处理操作
+            return "使用事件系统风格处理文件的结果。";
+        }
+
+        function processPipeFilter(file) {
+            // 执行管道-过滤器风格的文件处理操作
+            return "使用管道-过滤器风格处理文件的结果。";
+        }
+    </script>
+</body>
+</html>
